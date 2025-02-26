@@ -1,0 +1,6 @@
+@renessan3_HostAddress = http://localhost:5172
+
+GET {{renessan3_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
