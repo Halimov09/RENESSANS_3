@@ -1,4 +1,5 @@
 using renessan3.Broker.Storages;
+using renessan3.Service.Foundation.Telegram;
 using renessan3.Service.Foundation.User;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<StorageBroker>();
+builder.Services.AddHttpClient<TelegramService>();
 builder.Services.AddTransient<IStorageBroker, StorageBroker>();
 builder.Services.AddTransient<IuserService, UserService>();
 
@@ -28,6 +30,8 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
